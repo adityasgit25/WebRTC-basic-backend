@@ -1,6 +1,8 @@
 import { WebSocketServer, WebSocket } from 'ws';
 
-const wss = new WebSocketServer({ port: 8080 });
+const port = parseInt(process.env.PORT || '8080', 10);
+
+const wss = new WebSocketServer({ port: port });
 
 // Store rooms and their participants
 const rooms: Record<string, { participants: Set<WebSocket> }> = {};
